@@ -1,4 +1,4 @@
-import counter from './stores/counter';
+import counter from '../stores/counter';
 
 const useStore = () => {
     return { counter };

@@ -1,9 +1,9 @@
 import React from 'react';
 import './BasketItem.css';
-import { useObserver } from 'mobx-react';
+import { observer } from 'mobx-react';
 
 const BasketItem = ({ name, price, count, onTake }) => {
-    return useObserver(() => (
+    return (
         <div className="basket-item">
             <div className="name">{name}</div>
             <div className="price">{price}원</div>
@@ -12,7 +12,7 @@ const BasketItem = ({ name, price, count, onTake }) => {
                 갖다놓기
             </div>
         </div>
-    ));
+    );
 };
 
-export default BasketItem;
+export default observer(BasketItem);

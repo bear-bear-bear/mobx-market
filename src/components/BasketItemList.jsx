@@ -1,7 +1,7 @@
 import React, {useCallback} from 'react';
 import BasketItem from './BasketItem';
 import useStore from "../hooks/useStore";
-import {useObserver} from "mobx-react";
+import { observer } from "mobx-react";
 
 const BasketItemList = () => {
     const { market } = useStore();
@@ -10,7 +10,7 @@ const BasketItemList = () => {
         market.take(name);
     }, [market]);
 
-    return useObserver(() => (
+    return (
         <div>
             {market.selectdItems.map(({ name, price, count }) => (
                 <BasketItem
@@ -26,7 +26,7 @@ const BasketItemList = () => {
                 <b>총합:</b> {market.total}원
             </p>
         </div>
-    ))
+    );
 };
 
-export default BasketItemList;
+export default observer(BasketItemList);

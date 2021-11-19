@@ -1,5 +1,5 @@
 import React from 'react';
-import { useObserver } from 'mobx-react';
+import { observer } from 'mobx-react';
 import useStore from "../hooks/useStore";
 
 const Counter = () => {
@@ -13,13 +13,13 @@ const Counter = () => {
         counter.decrease();
     };
 
-    return useObserver(() => (
+    return (
         <div>
             <h1>{counter.number}</h1>
             <button onClick={increase}>+1</button>
             <button onClick={decrease}>-1</button>
         </div>
-    ));
+    );
 }
 
-export default Counter;
+export default observer(Counter);

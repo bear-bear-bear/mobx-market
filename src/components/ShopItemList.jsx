@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import ShopItem from './ShopItem';
+import useStore from '../hooks/useStore';
+import {useObserver} from "mobx-react";
 
 const items = [
     {
@@ -21,8 +23,18 @@ const items = [
 ];
 
 const ShopItemList = () => {
-    const itemList = items.map(item => <ShopItem {...item} key={item.name} />);
-    return <div>{itemList}</div>;
+    const { market } = useStore();
+    const onPutItem = useCallback((name, price) => {
+        market.put(name, price);
+    }, [market]);
+
+    return useObserver(() => (
+        <div>
+            {items.map((item) => (
+                <ShopItem {...item} key={item.name} onPut={onPutItem} />
+            ))}
+        </div>
+    ));
 };
 
 export default ShopItemList;

@@ -1,4 +1,4 @@
-import {observable} from "mobx";
+import {autorun, observable} from "mobx";
 
 const market = observable({
     selectdItems: [],
@@ -29,16 +29,16 @@ const market = observable({
         itemToTake.count--;
         if (itemToTake.count === 0) {
             this.selectdItems.remove(itemToTake);
-            // this.selectdItems = this.selectdItems.filter((item) => item.name !== itemToTake.name);
         }
     },
 
     get total() {
-        console.log('총합 계산...');
         return this.selectdItems.reduce((acc, { price, count }) => {
             return acc + (price * count);
         }, 0);
     },
 });
+
+autorun(() => console.log('총합:', market.total))
 
 export default market;

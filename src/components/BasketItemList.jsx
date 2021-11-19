@@ -1,17 +1,32 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import BasketItem from './BasketItem';
+import useStore from "../hooks/useStore";
+import {useObserver} from "mobx-react";
 
 const BasketItemList = () => {
-    return (
+    const { market } = useStore();
+
+    const onTakeItem = useCallback((name) => {
+        market.take(name);
+    }, [market]);
+
+    return useObserver(() => (
         <div>
-            <BasketItem name="포카칩" price={1500} count={2} />
-            <BasketItem name="생수" price={850} count={1} />
+            {market.selectdItems.map(({ name, price, count }) => (
+                <BasketItem
+                    name={name}
+                    price={price}
+                    count={count}
+                    key={name}
+                    onTake={onTakeItem}
+                />
+            ))}
             <hr />
-            <p>
-                <b>총합: </b> 3850원
+            <p style={{ float: 'right' }}>
+                <b>총합:</b> {market.total}원
             </p>
         </div>
-    );
+    ))
 };
 
 export default BasketItemList;

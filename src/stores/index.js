@@ -1,18 +1,19 @@
 import { createContext } from "react";
-import generateCounter from "./counter";
-import generateMarket from "./market";
+import counter from "./counter";
+import market from "./market";
 
 const rootStore = {
-    counter: generateCounter(this),
-    market: generateMarket(this),
+    counter,
+    market,
+
+    generateRoot() {
+        Object.values(this).forEach((store) => {
+            store.rootStore = this;
+        });
+    },
 };
 
-Object.values(rootStore).forEach((store) => {
-    if ('init' in store) {
-        store.init();
-    }
-});
-
+rootStore.generateRoot();
 export default rootStore;
 
 export const StoreContext = createContext(rootStore);

@@ -1,12 +1,8 @@
 import { autorun, observable } from "mobx";
 
-const generateMarket = (rootStore) => observable({
-    rootStore,
+const market = observable({
+    rootStore: null,
     selectdItems: [],
-
-    init() {
-        autorun(() => console.log('총합:', this.total))
-    },
 
     findItem(name) {
         return this.selectdItems.find((item) => item.name === name);
@@ -14,15 +10,18 @@ const generateMarket = (rootStore) => observable({
 
     put(name, price) {
         const existingItem = this.findItem(name);
+        const count = this.rootStore.counter.number;
+
         if (!existingItem) {
             this.selectdItems.push({
                 name,
                 price,
-                count: 1,
+                count,
             });
             return;
         }
-        existingItem.count++;
+
+        existingItem.count += count;
     },
 
     take(name) {
@@ -44,4 +43,6 @@ const generateMarket = (rootStore) => observable({
     },
 });
 
-export default generateMarket;
+autorun(() => console.log('총합:', market.total))
+
+export default market;

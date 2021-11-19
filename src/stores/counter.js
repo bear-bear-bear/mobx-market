@@ -1,7 +1,7 @@
 import { observable } from 'mobx';
 
-const generateCounter = (rootStore) => observable({
-    rootStore,
+const counter = observable({
+    rootStore: null,
     number: 1,
 
     increase () {
@@ -9,8 +9,9 @@ const generateCounter = (rootStore) => observable({
     },
 
     decrease () {
+        if (this.number === 1) return;
         this.number--;
     },
 });
 
-export default generateCounter;
+export default counter;

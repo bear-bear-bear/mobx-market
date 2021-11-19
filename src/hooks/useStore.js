@@ -1,8 +1,11 @@
-import counter from '../stores/counter';
-import market from '../stores/market';
+import { useContext } from "react";
+import { StoreContext } from "../stores";
 
-const useStore = () => {
-    return { counter, market };
+export default function useStore () {
+    const context = useContext(StoreContext);
+    if (context === undefined) {
+        throw new Error("useRootStore must be used within RootStoreProvider");
+    }
+
+    return context;
 };
-
-export default useStore;

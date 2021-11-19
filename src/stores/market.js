@@ -1,7 +1,12 @@
-import {autorun, observable} from "mobx";
+import { autorun, observable } from "mobx";
 
-const market = observable({
+const generateMarket = (rootStore) => observable({
+    rootStore,
     selectdItems: [],
+
+    init() {
+        autorun(() => console.log('총합:', this.total))
+    },
 
     findItem(name) {
         return this.selectdItems.find((item) => item.name === name);
@@ -39,6 +44,4 @@ const market = observable({
     },
 });
 
-autorun(() => console.log('총합:', market.total))
-
-export default market;
+export default generateMarket;

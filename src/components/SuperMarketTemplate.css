@@ -1,0 +1,21 @@
+.super-market-template {
+    width: 768px;
+    display: flex;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
+}
+
+.super-market-template h2 {
+    margin-top: 0;
+}
+
+.super-market-template>div {
+    padding: 1rem;
+    flex: 1;
+}
+
+.super-market-template .items-wrapper {
+    background: #f8f9fa;
+}

@@ -1,0 +1,31 @@
+/* src/components/BasketItem.css */
+.basket-item {
+    display: flex;
+    width: 100%;
+}
+
+.basket-item .name {
+    flex: 2;
+}
+
+.basket-item .price {
+    flex: 1;
+}
+
+.basket-item .count {
+    flex: 1;
+}
+
+.basket-item .return {
+    margin-left: auto;
+    color: #f06595;
+    cursor: pointer;
+}
+
+.basket-item .return:hover {
+    text-decoration: underline;
+}
+
+.basket-item + .basket-item {
+    margin-top: 1rem;
+}

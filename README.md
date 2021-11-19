@@ -4,4 +4,4 @@
 
 ---
 
-![이미지](./preview.png)
+<img src="https://github.com/bear-bear-bear/mobx-market/blob/master/preview.png" width="100%">

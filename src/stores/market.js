@@ -1,12 +1,17 @@
-import { autorun, observable } from "mobx";
+import { autorun, makeAutoObservable } from 'mobx';
 
-const market = observable({
-    rootStore: null,
-    selectdItems: [],
+class MarketStore {
+    selectdItems = [];
+
+    constructor(rootStore) {
+        this.rootStore = rootStore;
+        makeAutoObservable(this);
+        autorun(() => console.log('총합:', this.total));
+    };
 
     findItem(name) {
         return this.selectdItems.find((item) => item.name === name);
-    },
+    };
 
     put(name, price) {
         const existingItem = this.findItem(name);
@@ -22,7 +27,7 @@ const market = observable({
         }
 
         existingItem.count += count;
-    },
+    };
 
     take(name) {
         const itemToTake = this.findItem(name);
@@ -34,15 +39,13 @@ const market = observable({
         if (itemToTake.count === 0) {
             this.selectdItems.remove(itemToTake);
         }
-    },
+    };
 
     get total() {
         return this.selectdItems.reduce((acc, { price, count }) => {
             return acc + (price * count);
         }, 0);
-    },
-});
+    };
+}
 
-autorun(() => console.log('총합:', market.total))
-
-export default market;
+export default MarketStore;

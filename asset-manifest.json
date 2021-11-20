@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/mobx-market/static/css/main.3fff0f09.chunk.css",
-    "main.js": "/mobx-market/static/js/main.2fcb34ba.chunk.js",
-    "main.js.map": "/mobx-market/static/js/main.2fcb34ba.chunk.js.map",
+    "main.js": "/mobx-market/static/js/main.e6476fee.chunk.js",
+    "main.js.map": "/mobx-market/static/js/main.e6476fee.chunk.js.map",
     "runtime-main.js": "/mobx-market/static/js/runtime-main.4afa4259.js",
     "runtime-main.js.map": "/mobx-market/static/js/runtime-main.4afa4259.js.map",
-    "static/js/2.3e8f457d.chunk.js": "/mobx-market/static/js/2.3e8f457d.chunk.js",
-    "static/js/2.3e8f457d.chunk.js.map": "/mobx-market/static/js/2.3e8f457d.chunk.js.map",
+    "static/js/2.0cce64a6.chunk.js": "/mobx-market/static/js/2.0cce64a6.chunk.js",
+    "static/js/2.0cce64a6.chunk.js.map": "/mobx-market/static/js/2.0cce64a6.chunk.js.map",
     "index.html": "/mobx-market/index.html",
     "static/css/main.3fff0f09.chunk.css.map": "/mobx-market/static/css/main.3fff0f09.chunk.css.map",
-    "static/js/2.3e8f457d.chunk.js.LICENSE.txt": "/mobx-market/static/js/2.3e8f457d.chunk.js.LICENSE.txt"
+    "static/js/2.0cce64a6.chunk.js.LICENSE.txt": "/mobx-market/static/js/2.0cce64a6.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.4afa4259.js",
-    "static/js/2.3e8f457d.chunk.js",
+    "static/js/2.0cce64a6.chunk.js",
     "static/css/main.3fff0f09.chunk.css",
-    "static/js/main.2fcb34ba.chunk.js"
+    "static/js/main.e6476fee.chunk.js"
   ]
 }

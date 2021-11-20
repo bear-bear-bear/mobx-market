@@ -31,7 +31,7 @@ const ShopItemList = () => {
     return (
         <div>
             {items.map((item) => (
-                <ShopItem {...item} key={item.name} onPut={onPutItem} />
+                <ShopItem item={item} key={item.name} onPut={onPutItem} />
             ))}
         </div>
     );

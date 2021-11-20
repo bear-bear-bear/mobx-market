@@ -12,19 +12,13 @@ const BasketItemList = () => {
 
     return (
         <div>
-            {market.selectdItems.map(({ name, price, count }) => (
+            {market.selectdItems.map((item) => (
                 <BasketItem
-                    name={name}
-                    price={price}
-                    count={count}
-                    key={name}
+                    item={item}
+                    key={item.name}
                     onTake={onTakeItem}
                 />
             ))}
-            <hr />
-            <p style={{ float: 'right' }}>
-                <b>총합:</b> {market.total}원
-            </p>
         </div>
     );
 };
